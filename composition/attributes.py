@@ -6,13 +6,13 @@ def tag(tag: str, attr: dict[str, str], content: str):
     attrs = f" {attributes}" if attributes else ""
     return f"<{tag}{attrs}>{content}</{tag}>"
 
-attributes = { 'class': 'list-group', 'style': 'list-group-item-separator' }
+attributes = { 'class': 'list-group', 'id': 'list-item' }
 li_tag = tag('li', attributes, 'item 23')
 print(li_tag)
 
-bold_tag = tag("b", attributes)
-italic_tag = tag("i", attributes)
-bold_text = bold_tag("bold content")
-italic_text = italic_tag("italic content")
-print(bold_text)
-print(italic_text)
+bold = tag("b", {"class": "bold"} )
+italic = tag("i", {})
+bold_tag = bold("bold content")
+italic_tag = italic("italic content")
+print(bold_tag)
+print(italic_tag)
