@@ -1,13 +1,12 @@
 from functools import reduce
 
 def conquest_campaign(width, height, landing_count, battalion):
-    # массив должен содержать ровно landing_count пар координат
     assert len(battalion) == 2 * landing_count, (
         f"ожидалось {2 * landing_count} координат "
         f"({landing_count} точек высадки), получено {len(battalion)}"
     )
 
-    # разбиваем плоский массив [x1,y1, x2,y2, ...] на пары координат
+    # разбиваем плоский массив на пары координат
     landing_points = set(zip(battalion[::2], battalion[1::2]))
 
     def simulate_day(captured, day_number):
